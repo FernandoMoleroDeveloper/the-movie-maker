@@ -1,9 +1,10 @@
+import MovieDetail from "./MovieDetail/MovieDetail";
 import "./MovieDetailPage.scss";
 
 const MovieDetailPage = () => {
   return (
     <div>
-      <p>Peliculas!</p>
+      <MovieDetail></MovieDetail>
     </div>
   );
 };

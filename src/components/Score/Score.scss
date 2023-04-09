@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+.score {
+  &__rating {
+    display: flex;
+    transform: translate(20%, -65%);
+    background-color: $font-color-light;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+
+    ::after {
+      position: absolute;
+      content: "";
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+      width: 80%;
+      height: 80%;
+      border-radius: 100%;
+      border: 2px solid var(--color-percentage);
+    }
+  }
+}

@@ -32,7 +32,7 @@ function App() {
             <Header></Header>
             <Routes>
               <Route path="/" element={<HomePage></HomePage>}></Route>
-              <Route path="/movie/:movieId" element={<MovieDetailPage></MovieDetailPage>}></Route>
+              <Route path="/items/:id/:type" element={<MovieDetailPage></MovieDetailPage>}></Route>
               <Route path="/game" element={<GamePage></GamePage>}></Route>
             </Routes>
           </HashRouter>
