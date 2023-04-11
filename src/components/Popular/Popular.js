@@ -31,7 +31,7 @@ const Popular = () => {
         ))}
       </div>
       {theAreMore && (
-        <button onClick={() => showMoreItems()} className="btn popular__show-more">
+        <button onClick={() => showMoreItems()} className="popular__show-more btn">
           + MORE
         </button>
       )}

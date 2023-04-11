@@ -25,11 +25,14 @@ const Tendencias = () => {
           </button>
         </div>
       </div>
-      <div className="trends__films">
-        {firstMovies?.map((item) => (
-          <Item key={item.id} item={item}></Item>
-        ))}
+      <div className="trends__films--wrapper">
+        <div className="trends__films">
+          {firstMovies?.map((item) => (
+            <Item key={item.id} item={item}></Item>
+          ))}
+        </div>
       </div>
+
       {theAreMore && (
         <button onClick={() => showMoreMovies()} className="btn trends__show-more">
           + MORE

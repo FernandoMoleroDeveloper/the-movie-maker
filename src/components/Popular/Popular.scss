@@ -4,6 +4,7 @@
 .popular {
   display: flex-start;
   flex-direction: column;
+  margin-bottom: 10px;
 
   &__text {
     display: flex-start;
@@ -54,6 +55,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 10px auto;
   }
 }

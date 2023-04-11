@@ -3,13 +3,12 @@
 .home {
   &__background {
     position: relative;
-    margin-top: 20px;
   }
   &__background-container-image {
     width: 100%;
     @include mobile-only {
-      height: 365px;
-      width: 1280px;
+      width: auto;
+      height: 100%;
       left: -380px;
       top: 111px;
       align-items: center;

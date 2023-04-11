@@ -2,6 +2,7 @@ import "./MovieDetail.scss";
 import useFetch from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import { roundedToFixed } from "../../../utils/utils";
+import CrewItem from "../../../components/CrewItem/CrewItem";
 
 const MovieDetail = () => {
   const { id } = useParams(":id");
@@ -12,13 +13,29 @@ const MovieDetail = () => {
 
   return (
     <div className="movie-detail">
-      <div>
-        <img className="movie-detail__img" src={`${process.env.REACT_APP_IMG}${itemData?.poster_path}`} />
-        <h3 className="movie-detail__title">{itemData?.title || itemData?.name}</h3>
-        <p className="movie-detail__score">{porcentVote}puntuación del usuario</p>
-        <p className="movie-detail__tagline">{itemData?.tagline}</p>
-        <p className="movie-detail">Vista general</p>
-        <p className="movie-detai__description">{itemData?.overview}</p>
+      <div className="movie-detail__box-1">
+        <img className="movie-detail__img" src={`https://image.tmdb.org/t/p/w440_and_h660_face/${itemData?.poster_path}`} />
+      </div>
+      <div className="movie-detail__box-2">
+        <div className="movie-detail__text">
+          <h3 className="movie-detail__title">{itemData?.title || itemData?.name}</h3>
+          <div className="movie-detail__main-info">
+            <p className="movie-detail__release-date">{itemData?.release_date} | </p>
+            <p className="movie-detail__genre">
+              {itemData?.genres?.map((item) => (
+                <span key={item.id}> {item?.name},</span>
+              ))}
+            </p>
+            <p className="movie-detail__time">| {itemData?.runtime} min</p>
+          </div>
+          <p className="movie-detail__score">{porcentVote}puntuación del usuario</p>
+          <p className="movie-detail__tagline">{itemData?.tagline}</p>
+          <p className="movie-detail__subtitle">Vista general</p>
+          <p className="movie-detai__description">{itemData?.overview}</p>
+        </div>
+        <div className="movie-detail__crew">
+          <CrewItem></CrewItem>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,83 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/media-queries.scss";
+.movie-detail {
+  background-color: $background-generic;
+  color: $font-color-light;
+  margin: 0;
+  padding: 20px;
+  @include for-tablet-portrait-up {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+  }
+  &__img {
+    border-radius: 10px;
+    width: 250px;
+  }
+  &__box-1 {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+  &__box-2 {
+    padding: 0px 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include for-tablet-portrait-up {
+      margin-left: 20px;
+    }
+  }
+  &__title {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 0;
+    @include for-tablet-portrait-up {
+      font-size: 30px;
+      margin-top: 0;
+    }
+  }
+
+  &__main-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    margin-top: -10;
+  }
+
+  &__release-date {
+    margin-top: 0;
+  }
+
+  &__genre {
+    margin-top: 0;
+  }
+
+  &__time {
+    margin-top: 0;
+  }
+
+  &__score {
+  }
+
+  &__tagline {
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__description {
+  }
+  &__crew {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
