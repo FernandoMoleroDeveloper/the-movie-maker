@@ -4,6 +4,7 @@ import HeaderLogo from "../../assets/logo.png";
 
 import { useContext } from "react";
 import { LanguageSelector } from "../../App";
+import { FormattedMessage } from "react-intl";
 
 const Header = () => {
   const { setLanguage } = useContext(LanguageSelector);
@@ -16,10 +17,10 @@ const Header = () => {
           </NavLink>
           <div className="header__links--app">
             <NavLink className="header__links-link" to="/movie/:movieId">
-              Películas
+              <FormattedMessage id="general:films" />
             </NavLink>
             <NavLink className="header__links-link" to="/game">
-              Juego
+              <FormattedMessage id="header:game" />
             </NavLink>
           </div>
         </div>

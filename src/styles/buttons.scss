@@ -31,4 +31,28 @@
     text-decoration: underline;
     color: $font-color-generic;
   }
+  &--option-selected {
+    color: $font-color-generic;
+    font-weight: 600;
+    background-color: $btn-selected;
+    width: 290px;
+  }
+
+  &--option-correct {
+    background-color: $btn-correct;
+    color: $font-color-light;
+    font-weight: 600;
+    width: 290px;
+  }
+
+  &--option-wrong {
+    background-color: $btn-wrong;
+    color: $font-color-light;
+    font-weight: 600;
+    width: 290px;
+  }
+  &--option {
+    color: $font-color-generic;
+    background-color: $font-color-grey;
+  }
 }

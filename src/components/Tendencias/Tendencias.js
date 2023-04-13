@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import Item from "../Item/Item";
 import { useState } from "react";
 import { usePagination } from "../../hooks/usePaginator";
+import { FormattedMessage } from "react-intl";
 
 const Tendencias = () => {
   const [listTimeTrends, setListTimeTrends] = useState("day");
@@ -15,13 +16,15 @@ const Tendencias = () => {
   return (
     <div className="trends">
       <div className="trends__text">
-        <h3 className="trends__title">Tendencias</h3>
+        <h3 className="trends__title">
+          <FormattedMessage id="tendencias:title" />
+        </h3>
         <div className="trends__buttons">
           <button onClick={() => setListTimeTrends("day")} className="btn trends__btn-time">
-            Hoy
+            <FormattedMessage id="tendencias:today" />
           </button>
           <button onClick={() => setListTimeTrends("week")} className="btn trends__btn-time">
-            Esta semana
+            <FormattedMessage id="tendencias:week" />
           </button>
         </div>
       </div>
@@ -35,7 +38,7 @@ const Tendencias = () => {
 
       {theAreMore && (
         <button onClick={() => showMoreMovies()} className="btn trends__show-more">
-          + MORE
+          <FormattedMessage id="general:show-more" />
         </button>
       )}
     </div>

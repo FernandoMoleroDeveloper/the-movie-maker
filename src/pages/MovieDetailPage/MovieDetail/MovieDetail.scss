@@ -66,6 +66,7 @@
   }
 
   &__tagline {
+    margin-left: 15px;
   }
 
   &__subtitle {
@@ -73,11 +74,44 @@
     font-weight: 600;
   }
 
-  &__description {
+  &__vote-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   &__crew {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+
+    justify-content: space-around;
+  }
+  &__exterior-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: $background-generic;
+  }
+  &__interior-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+    background-color: $background-generic;
+  }
+  &__vote {
+    color: $font-color-light;
+    font-size: 8px;
+    font-weight: 700;
+    text-align: center;
+  }
+  &__span {
+    font-size: 8px;
+    font-weight: 300;
   }
 }

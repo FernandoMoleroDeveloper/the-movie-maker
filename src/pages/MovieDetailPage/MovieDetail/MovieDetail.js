@@ -1,8 +1,9 @@
 import "./MovieDetail.scss";
 import useFetch from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
-import { roundedToFixed } from "../../../utils/utils";
 import CrewItem from "../../../components/CrewItem/CrewItem";
+import { roundedToFixed, generateColor } from "../../../utils/utils";
+import { FormattedMessage } from "react-intl";
 
 const MovieDetail = () => {
   const { id } = useParams(":id");
@@ -10,6 +11,7 @@ const MovieDetail = () => {
   const API_URL_DETAIL = process.env.REACT_APP_API_URL + "/" + type + "/" + id + "?api_key=" + process.env.REACT_APP_API_KEY;
   const [itemData] = useFetch(API_URL_DETAIL);
   const porcentVote = roundedToFixed(itemData?.vote_average) * 10 + "%";
+  const colorVote = generateColor(roundedToFixed(itemData?.vote_average) * 10);
 
   return (
     <div className="movie-detail">
@@ -28,9 +30,21 @@ const MovieDetail = () => {
             </p>
             <p className="movie-detail__time">| {itemData?.runtime} min</p>
           </div>
-          <p className="movie-detail__score">{porcentVote}puntuación del usuario</p>
-          <p className="movie-detail__tagline">{itemData?.tagline}</p>
-          <p className="movie-detail__subtitle">Vista general</p>
+          <div className="movie-detail__vote-line">
+            <div className="movie-detail__exterior-circle">
+              <div className="movie-detail__interior-circle" style={{ border: `3px solid ${colorVote}` }}>
+                <p className="movie-detail__vote">
+                  {porcentVote}
+                  <span className="movie-detail__span">%</span>
+                </p>
+              </div>
+            </div>
+            <p className="movie-detail__tagline">{itemData?.tagline}</p>
+          </div>
+
+          <p className="movie-detail__subtitle">
+            <FormattedMessage id="movie-detail:title" />
+          </p>
           <p className="movie-detai__description">{itemData?.overview}</p>
         </div>
         <div className="movie-detail__crew">

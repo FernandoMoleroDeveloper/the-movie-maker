@@ -1,7 +1,6 @@
-@import "../../styles/media-queries.scss";
-@import "../../styles/variables.scss";
-
-.game-page {
+@import "../../../styles/variables.scss";
+@import "../../../styles/media-queries.scss";
+.game-main-info {
   &__detail {
     background-color: $background-generic;
     color: $font-color-light;
@@ -13,6 +12,13 @@
       align-items: start;
       justify-content: center;
     }
+  }
+  &__title {
+    padding: 15px 0px;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 24px;
+    color: $font-color-light;
   }
   &__detail--title {
     padding: 15px 0px;
@@ -26,57 +32,12 @@
       font-size: 24px;
     }
   }
-  &__title {
-    padding: 15px 0px;
-    margin: 0px;
-    font-weight: 700;
-    font-size: 24px;
-    color: $font-color-light;
-  }
-  &__option-title {
-    padding: 15px;
-    margin: 0px;
-    font-weight: 700;
-    font-size: 24px;
-    color: $font-color-alternative;
-  }
   &__img {
     border-radius: 10px;
     width: 250px;
   }
-  &__options--container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-  }
-  &__options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    @include for-tablet-portrait-up {
-      margin: 5px 30px;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-  &__button {
-    margin: 10px;
-  }
-  &__solve {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  &__solve-btn {
-    margin: 0 10px;
-  }
   &__box-1 {
     display: flex;
-
     justify-content: center;
     align-items: center;
   }
@@ -93,10 +54,10 @@
   }
 
   &__main-info {
-    display: flex;
+    display: flex-start;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
+
     margin-top: -10;
   }
 

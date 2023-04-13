@@ -28,6 +28,9 @@
       color: $font-color-alternative;
     }
   }
+  &__films--wrapper {
+    overflow-x: scroll;
+  }
   &__films {
     display: flex;
     flex-wrap: wrap;

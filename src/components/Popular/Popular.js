@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import { useState } from "react";
 import Item from "../Item/Item";
 import { usePagination } from "../../hooks/usePaginator";
+import { FormattedMessage } from "react-intl";
 
 const Popular = () => {
   const [optionMedia, setOptionMedia] = useState("movie");
@@ -15,24 +16,29 @@ const Popular = () => {
   return (
     <div className="popular">
       <div className="popular__text">
-        <h3 className="popular__title">Lo más popular</h3>
+        <h3 className="popular__title">
+          <FormattedMessage id="popular:title" />
+        </h3>
         <div className="popular__buttons">
           <button className="btn popular__btn-time" onClick={() => setOptionMedia("movie")}>
-            Películas
+            <FormattedMessage id="general:films" />
           </button>
           <button className="btn popular__btn-time" onClick={() => setOptionMedia("tv")}>
-            Televisión
+            <FormattedMessage id="general:tv" />
           </button>
         </div>
       </div>
-      <div className="popular__films">
-        {firstItems?.map((item) => (
-          <Item key={item.id} item={item}></Item>
-        ))}
+      <div className="popular__films--wrapper">
+        <div className="popular__films">
+          {firstItems?.map((item) => (
+            <Item key={item.id} item={item}></Item>
+          ))}
+        </div>
       </div>
+
       {theAreMore && (
         <button onClick={() => showMoreItems()} className="popular__show-more btn">
-          + MORE
+          <FormattedMessage id="general:show-more" />
         </button>
       )}
     </div>

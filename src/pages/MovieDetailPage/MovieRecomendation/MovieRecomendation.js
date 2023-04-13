@@ -2,6 +2,7 @@ import "./MovieRecomendation.scss";
 import useFetch from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import RecomendationItem from "../../../components/RecommdationItem/RecomendationItem";
+import { FormattedMessage } from "react-intl";
 
 const MovieRecomendation = () => {
   const { id } = useParams(":id");
@@ -10,10 +11,16 @@ const MovieRecomendation = () => {
   const [recommendationsData] = useFetch(API_URL_RECOMMENDATIONS);
   return (
     <div className="movie-rec">
-      <h3 className="movie-rec__title">Recomendaciones</h3>
-      {recommendationsData?.results?.map((element) => (
-        <RecomendationItem key={element.id} item={element} />
-      ))}
+      <h3 className="movie-rec__title">
+        <FormattedMessage id="movie-recomendation:title" />
+      </h3>
+      <div className="movie-rec__wrapper">
+        <div className="movie-rec__item">
+          {recommendationsData?.results?.map((element) => (
+            <RecomendationItem key={element.id} item={element} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

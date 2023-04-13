@@ -2,6 +2,7 @@ import "./MovieCast.scss";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import CastItem from "../../../components/CastItem/CastItem";
+import { FormattedMessage } from "react-intl";
 
 const MovieCast = () => {
   const { id } = useParams(":id");
@@ -10,11 +11,15 @@ const MovieCast = () => {
   const [personsData] = useFetch(API_URL_CAST);
   return (
     <div className="movie-cast">
-      <h3 className="movie-cast__title">Reparto Principal</h3>
-      <div className="movie-cast__principal">
-        {personsData?.cast?.map((character) => (
-          <CastItem key={character.id} character={character} />
-        ))}
+      <h3 className="movie-cast__title">
+        <FormattedMessage id="movie-cast:title" />
+      </h3>
+      <div className="movie-cast__wrapper">
+        <div className="movie-cast__principal">
+          {personsData?.cast?.map((character) => (
+            <CastItem key={character.id} character={character} />
+          ))}
+        </div>
       </div>
     </div>
   );
