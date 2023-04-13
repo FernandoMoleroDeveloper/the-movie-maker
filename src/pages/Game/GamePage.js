@@ -3,11 +3,11 @@ import { generateRandom } from "../../utils/utils";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import { FormattedMessage } from "react-intl";
+import { ImFilm } from "react-icons/im";
 
 const GamePage = () => {
   const [nameSelected, setNameSelected] = useState();
   const [gameIsSolved, setGameIsSolved] = useState(false);
-  // const [filmList, setFilmList] = React.useState([]);
   const [page, setPage] = useState(generateRandom(0, 100));
   const [currentFilm, setCurrentFilm] = useState();
   const [options, setOptions] = useState([]);
@@ -16,7 +16,6 @@ const GamePage = () => {
     fetch(FILM_URL)
       .then((response) => response.json())
       .then((dataParsed) => {
-        // setFilmList(dataParsed.results);
         generateNewGamePlay(dataParsed.results);
       });
   }, [page]);
@@ -47,13 +46,13 @@ const GamePage = () => {
   const getClassesForButton = (option) => {
     if (gameIsSolved) {
       if (option === currentFilm?.title) {
-        return "btn--option-correct";
+        return "btn__option--correct";
       } else if (option === nameSelected) {
-        return "btn--option-wrong";
+        return "btn__option--wrong";
       }
     } else {
       if (option === nameSelected) {
-        return "btn--option-selected";
+        return "btn__option--selected";
       }
     }
   };
@@ -61,12 +60,10 @@ const GamePage = () => {
   return (
     <div className="game-page">
       <div className="game-page__detail">
-        <div className="game-page__box-1">
-          <img className="game-page__img" src={`https://image.tmdb.org/t/p/w440_and_h660_face/${currentFilm?.poster_path}`} />
-        </div>
+        <div className="game-page__box-1">{gameIsSolved ? <img className="game-page__img" src={`https://image.tmdb.org/t/p/w440_and_h660_face/${currentFilm?.poster_path}`} /> : <ImFilm className="game-page__film-icon" />} </div>
         <div className="game-page__box-2">
           <div className="game-page__text">
-            <h3 className="game-page__title">{currentFilm?.title || currentFilm?.name}</h3>
+            <h3 className="game-page__title">{gameIsSolved ? currentFilm?.title || currentFilm?.name : "???"}</h3>
             <div className="game-page__main-info">
               <p className="game-page__release-date">{currentFilm?.release_date} | </p>
               <p className="game-page__genre">
@@ -90,7 +87,7 @@ const GamePage = () => {
         </h3>
         <div className="game-page__options">
           {options.map((name) => (
-            <button onClick={() => selectOption(name)} key={name} className={"btn btn--big btn--option game-page__button " + getClassesForButton(name)}>
+            <button onClick={() => selectOption(name)} key={name} className={"btn btn--big btn__option game-page__button " + getClassesForButton(name)}>
               {name}
             </button>
           ))}
