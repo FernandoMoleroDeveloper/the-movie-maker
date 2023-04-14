@@ -20,7 +20,7 @@
   &__principal {
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: top;
     justify-content: center;
 
     @include for-tablet-portrait-up {

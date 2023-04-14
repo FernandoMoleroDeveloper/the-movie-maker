@@ -43,10 +43,10 @@
   }
 
   &__main-info {
-    display: flex;
+    display: flex-start;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
+
     margin-top: -10;
   }
 
@@ -113,5 +113,10 @@
   &__span {
     font-size: 8px;
     font-weight: 300;
+  }
+  &__vote-line {
+    display: flex-start;
+    align-items: center;
+    margin-top: 15px;
   }
 }

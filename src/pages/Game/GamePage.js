@@ -1,5 +1,5 @@
 import "./GamePage.scss";
-import { generateRandom } from "../../utils/utils";
+import { generateRandom, formatDate, formatGenres, formatTime } from "../../utils/utils";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import { FormattedMessage } from "react-intl";
@@ -60,18 +60,14 @@ const GamePage = () => {
   return (
     <div className="game-page">
       <div className="game-page__detail">
-        <div className="game-page__box-1">{gameIsSolved ? <img className="game-page__img" src={`https://image.tmdb.org/t/p/w440_and_h660_face/${currentFilm?.poster_path}`} /> : <ImFilm className="game-page__film-icon" />} </div>
+        <div className="game-page__box-1">{gameIsSolved ? <img className="game-page__img" src={`https://image.tmdb.org/t/p/w200/${currentFilm?.poster_path}`} /> : <ImFilm className="game-page__film-icon" />} </div>
         <div className="game-page__box-2">
           <div className="game-page__text">
             <h3 className="game-page__title">{gameIsSolved ? currentFilm?.title || currentFilm?.name : "???"}</h3>
             <div className="game-page__main-info">
-              <p className="game-page__release-date">{currentFilm?.release_date} | </p>
-              <p className="game-page__genre">
-                {currentFilm?.genres?.map((item) => (
-                  <span key={item.id}> {item?.name},</span>
-                ))}
-              </p>
-              <p className="game-page__time">| {currentFilm?.runtime} min</p>
+              <span>{formatDate(currentFilm?.release_date)} | </span>
+              <span>{formatGenres(currentFilm?.genres)}</span>
+              <span>| {formatTime(currentFilm?.runtime)}</span>
             </div>
             <h3 className="game-page__detail--title">
               <FormattedMessage id="game:first-title" />

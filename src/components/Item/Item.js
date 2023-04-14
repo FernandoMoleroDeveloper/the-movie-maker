@@ -8,7 +8,7 @@ const Item = ({ item }) => {
   return (
     <Link className="item" to={`/items/${item?.id}/${type}`}>
       <div className="item">
-        <img className="item__img" src={`https://image.tmdb.org/t/p/w440_and_h660_face/${item?.poster_path}`} />
+        <img className="item__img" src={`https://image.tmdb.org/t/p/w200/${item?.poster_path}`} />
         <p className="item__title">{item?.title || item?.name}</p>
         <p className="item__date">{item?.release_date || item?.first_air_date}</p>
       </div>

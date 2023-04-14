@@ -2,7 +2,7 @@ import "./MovieDetail.scss";
 import useFetch from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import CrewItem from "../../../components/CrewItem/CrewItem";
-import { roundedToFixed, generateColor } from "../../../utils/utils";
+import { roundedToFixed, generateColor, formatDate, formatGenres, formatTime } from "../../../utils/utils";
 import { FormattedMessage } from "react-intl";
 
 const MovieDetail = () => {
@@ -22,13 +22,9 @@ const MovieDetail = () => {
         <div className="movie-detail__text">
           <h3 className="movie-detail__title">{itemData?.title || itemData?.name}</h3>
           <div className="movie-detail__main-info">
-            <p className="movie-detail__release-date">{itemData?.release_date} | </p>
-            <p className="movie-detail__genre">
-              {itemData?.genres?.map((item) => (
-                <span key={item.id}> {item?.name},</span>
-              ))}
-            </p>
-            <p className="movie-detail__time">| {itemData?.runtime} min</p>
+            <span>{formatDate(itemData?.release_date)} | </span>
+            <span>{formatGenres(itemData?.genres)}</span>
+            <span>| {formatTime(itemData?.runtime)}</span>
           </div>
           <div className="movie-detail__vote-line">
             <div className="movie-detail__exterior-circle">
