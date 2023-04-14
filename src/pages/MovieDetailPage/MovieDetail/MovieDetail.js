@@ -22,7 +22,7 @@ const MovieDetail = () => {
         <div className="movie-detail__text">
           <h3 className="movie-detail__title">{itemData?.title || itemData?.name}</h3>
           <div className="movie-detail__main-info">
-            <span>{formatDate(itemData?.release_date)} | </span>
+            <span>{formatDate(itemData?.release_date || itemData?.seasons?.[0]?.air_date)} | </span>
             <span>{formatGenres(itemData?.genres)}</span>
             <span>| {formatTime(itemData?.runtime)}</span>
           </div>
@@ -37,7 +37,6 @@ const MovieDetail = () => {
             </div>
             <p className="movie-detail__tagline">{itemData?.tagline}</p>
           </div>
-
           <p className="movie-detail__subtitle">
             <FormattedMessage id="movie-detail:title" />
           </p>
