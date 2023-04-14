@@ -7,8 +7,7 @@ import { FormattedMessage } from "react-intl";
 
 const Popular = () => {
   const [optionMedia, setOptionMedia] = useState("movie");
-
-  const API_URL_POPULAR = process.env.REACT_APP_API_URL + "/" + optionMedia + "/popular/" + "?" + `api_key=${process.env.REACT_APP_API_KEY}`;
+  const API_URL_POPULAR = process.env.REACT_APP_API_URL + "/" + optionMedia + "/popular?language=es-ES&" + `api_key=${process.env.REACT_APP_API_KEY}`;
   const [popularData] = useFetch(API_URL_POPULAR);
   const [firstItems, showMoreItems, theAreMore] = usePagination(popularData?.results);
 
