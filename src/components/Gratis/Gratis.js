@@ -12,7 +12,6 @@ const Gratis = () => {
   const [freeData] = useFetch(API_URL_WATCH_FREE);
   const [firstMovies, showMoreMovies, theAreMore] = usePagination(freeData?.results);
 
-  console.log(freeData);
   return (
     <div className="popular">
       <div className="popular__text">

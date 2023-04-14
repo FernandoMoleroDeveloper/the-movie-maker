@@ -12,7 +12,6 @@ const Popular = () => {
   const [popularData] = useFetch(API_URL_POPULAR);
   const [firstItems, showMoreItems, theAreMore] = usePagination(popularData?.results);
 
-  console.log(popularData);
   return (
     <div className="popular">
       <div className="popular__text">

@@ -11,7 +11,6 @@ const Tendencias = () => {
   const API_URL = process.env.REACT_APP_API_URL + "/trending/movie/" + listTimeTrends + "?" + `api_key=${process.env.REACT_APP_API_KEY}`;
   const [movieData] = useFetch(API_URL);
   const [firstMovies, showMoreMovies, theAreMore] = usePagination(movieData?.results);
-  console.log(firstMovies);
 
   return (
     <div className="trends">
