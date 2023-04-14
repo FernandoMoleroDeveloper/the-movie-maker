@@ -4,11 +4,14 @@ import { useParams } from "react-router-dom";
 import CrewItem from "../../../components/CrewItem/CrewItem";
 import { roundedToFixed, generateColor, formatDate, formatGenres, formatTime } from "../../../utils/utils";
 import { FormattedMessage } from "react-intl";
+import { LanguageSelector } from "../../../App";
+import { useContext } from "react";
 
 const MovieDetail = () => {
   const { id } = useParams(":id");
   const { type } = useParams(":type");
-  const API_URL_DETAIL = process.env.REACT_APP_API_URL + "/" + type + "/" + id + "?api_key=" + process.env.REACT_APP_API_KEY;
+  const { language } = useContext(LanguageSelector);
+  const API_URL_DETAIL = process.env.REACT_APP_API_URL + "/" + type + "/" + id + "?language=" + language + "&api_key=" + process.env.REACT_APP_API_KEY;
   const [itemData] = useFetch(API_URL_DETAIL);
   const porcentVote = roundedToFixed(itemData?.vote_average) * 10 + "%";
   const colorVote = generateColor(roundedToFixed(itemData?.vote_average) * 10);
