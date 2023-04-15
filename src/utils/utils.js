@@ -52,16 +52,6 @@ export const formatGenres = (genres) => {
   }
 };
 
-export const formatDateWithBarrs = (date) => {
-  if (date !== undefined) {
-    const partes = date.split("-");
-    const dia = partes[2];
-    const mes = partes[1];
-    const anio = partes[0];
-    return `${dia}/${mes}/${anio}`;
-  }
-};
-
 export const formatYear = (date) => {
   if (date !== undefined) {
     const year = date.slice(0, 4);
