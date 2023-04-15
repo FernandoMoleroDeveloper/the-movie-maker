@@ -10,7 +10,7 @@ import { FormattedMessage } from "react-intl";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="home">
       <div className="home__background">
         <div className="home__backround-container">
           <img className="home__background-container-image" src={HeaderBackground} />

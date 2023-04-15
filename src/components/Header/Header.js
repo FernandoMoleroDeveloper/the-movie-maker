@@ -25,10 +25,10 @@ const Header = () => {
           </div>
         </div>
         <div className="header__lang">
-          <button onClick={() => setLanguage("es-ES")} className="btn--small header__lang-btn">
+          <button label="Click me es" onClick={() => setLanguage("es-ES")} className="btn--small header__lang-btn">
             ES
           </button>
-          <button onClick={() => setLanguage("en-EN")} className="btn--small header__lang-btn">
+          <button label="Click me en" onClick={() => setLanguage("en-EN")} className="btn--small header__lang-btn">
             EN
           </button>
         </div>

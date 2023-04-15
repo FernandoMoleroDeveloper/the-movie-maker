@@ -15,14 +15,14 @@ const GamePage = () => {
   const [currentFilm, setCurrentFilm] = useState();
   const [options, setOptions] = useState([]);
   const FILM_URL = process.env.REACT_APP_API_URL + "/movie/top_rated?language=" + language + page + "&api_key=" + process.env.REACT_APP_API_KEY;
-  const [currentFilmInfo] = useFetch(process.env.REACT_APP_API_URL + "/movie/" + currentFilm?.id + "?api_key=" + process.env.REACT_APP_API_KEY);
+  const [currentFilmInfo] = useFetch(process.env.REACT_APP_API_URL + "/movie/" + currentFilm?.id + "?language=" + language + "&api_key=" + process.env.REACT_APP_API_KEY);
   useEffect(() => {
     fetch(FILM_URL)
       .then((response) => response.json())
       .then((dataParsed) => {
         generateNewGamePlay(dataParsed.results);
       });
-  }, [page]);
+  }, [page, language]);
 
   const generateNewGamePlay = (dataParsed) => {
     const randomIndexes = [];

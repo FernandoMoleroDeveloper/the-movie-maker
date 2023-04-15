@@ -6,7 +6,7 @@ import MovieRecomendation from "./MovieRecomendation/MovieRecomendation";
 
 const MovieDetailPage = () => {
   return (
-    <div>
+    <div className="movie-detail-page">
       <MovieDetail></MovieDetail>
       <MovieCast></MovieCast>
       <MovieRecomendation></MovieRecomendation>
